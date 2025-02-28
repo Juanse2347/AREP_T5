@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button[type="button"] {
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+        }
+
+        button[type="button"]:hover {
+            background-color: #e53935;
+        }
+
+        .property-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-item button {
+            margin-left: 10px;
+        }
+
+        .notification {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            color: white;
+            text-align: center;
+            display: none;
+        }
+
+        .notification.success {
+            background-color: #4CAF50;
+        }
+
+        .notification.error {
+            background-color: #f44336;
+        }
+
+        .property-list {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+    <script>
+        // Obtener todas las propiedades y mostrarlas
+        function getProperties() {
+            fetch('/properties')
+                .then(response => response.json())
+                .then(data => {
+                    let propertyList = document.getElementById('property-list');
+                    propertyList.innerHTML = '';
+                    data.forEach(property => {
+                        propertyList.innerHTML += `
+                            <li class="property-item">
+                                <span>${property.address} - $${property.price}</span>
+                                <div>
+                                    <button onclick="editProperty(${property.id})">Edit</button>
+                                    <button onclick="deleteProperty(${property.id})">Delete</button>
+                                </div>
+                            </li>`;
+                    });
+                })
+                .catch(error => {
+                    showNotification('Error loading properties', 'error');
+                });
+        }
+
+        // Crear o actualizar una propiedad
+        function saveProperty() {
+            const address = document.getElementById('address').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const size = parseFloat(document.getElementById('size').value);
+            const description = document.getElementById('description').value;
+            const id = document.getElementById('property-id').value;
+
+            if (!address || !price || !size || !description) {
+                alert('Please fill out all fields!');
+                return;
+            }
+
+            const property = { address, price, size, description };
+
+            let method = 'POST';
+            let url = '/properties';
+            if (id) {
+                method = 'PUT';
+                url = `/properties/${id}`;
+            }
+
+            fetch(url, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(property)
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Property saved successfully', 'success');
+                    getProperties();
+                    resetForm();
+                } else {
+                    showNotification('Error saving property', 'error');
+                }
+            });
+        }
+
+        // Editar una propiedad
+        function editProperty(id) {
+            fetch(`/properties/${id}`)
+                .then(response => response.json())
+                .then(property => {
+                    document.getElementById('address').value = property.address;
+                    document.getElementById('price').value = property.price;
+                    document.getElementById('size').value = property.size;
+                    document.getElementById('description').value = property.description;
+                    document.getElementById('property-id').value = property.id;
+                })
+                .catch(error => {
+                    showNotification('Error fetching property', 'error');
+                });
+        }
+
+        // Eliminar una propiedad
+        function deleteProperty(id) {
+            fetch(`/properties/${id}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.ok) {
+                        showNotification('Property deleted successfully', 'success');
+                        getProperties();
+                    } else {
+                        showNotification('Error deleting property', 'error');
+                    }
+                })
+                .catch(error => {
+                    showNotification('Error deleting property', 'error');
+                });
+        }
+
+        // Resetear el formulario
+        function resetForm() {
+            document.getElementById('property-form').reset();
+            document.getElementById('property-id').value = '';
+        }
+
+        // Mostrar notificaciones
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.remove('success', 'error');
+            notification.classList.add(type);
+            notification.style.display = 'block';
+            setTimeout(() => notification.style.display = 'none', 3000);
+        }
+
+        window.onload = getProperties;
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Property Management</h1>
+
+    <form id="property-form" onsubmit="event.preventDefault(); saveProperty();">
+        <input type="hidden" id="property-id">
+        <label for="address">Address: </label><input type="text" id="address" required><br>
+        <label for="price">Price: </label><input type="number" id="price" required><br>
+        <label for="size">Size: </label><input type="number" id="size" required><br>
+        <label for="description">Description: </label><textarea id="description" required></textarea><br>
+        <button type="submit">Save Property</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
+
+    <!-- Notification Message -->
+    <div id="notification" class="notification"></div>
+
+    <h2>Properties</h2>
+    <ul id="property-list" class="property-list"></ul>
+</div>
+</body>
+</html>
