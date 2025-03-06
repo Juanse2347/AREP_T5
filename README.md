@@ -23,17 +23,12 @@ Este sistema CRUD permite gestionar anuncios de propiedades inmobiliarias. Los u
 - Eliminar: Permite eliminar una propiedad de la base de datos.
 ```
 
-Se crea una imagen de Docker para encapsular la aplicación Java, lo que permite ejecutar la aplicación en cualquier máquina que soporte Docker.
+Despliegue de los servicios de backend y base de datos en servidores separados dentro de de AWS
   
 ```bash
 Despliegue en AWS
 ```
 
-Una vez que la aplicación está contenida en Docker, se sube a DockerHub y luego se despliega en una máquina virtual de AWS, permitiendo la ejecución remota.
-
-```bash
-Ejecución Local y Remota
-```
 Se ejecuta localmente en contenedores Docker y también puede ser desplegada en una máquina virtual en AWS.
 
 
@@ -43,13 +38,14 @@ Se ejecuta localmente en contenedores Docker y también puede ser desplegada en 
 - Maven
 - Docker
 - AWS EC2
+- MySQL
 
 
 ## 🚀 Instalación y Ejecución
 ### 1️⃣ Clonar el repositorio
 ```bash
-git clone https://github.com/Juanse2347/AREP_T4
-cd AREP_T4
+git clone https://github.com/Juanse2347/AREP_T5
+cd AREP_T5
 ```
 
 ### 2️⃣ Compilar el proyecto con Maven
@@ -57,7 +53,7 @@ cd AREP_T4
 mvn clean install
 ```
 
-![Image](https://github.com/user-attachments/assets/9a3392f2-fd28-4615-bfa2-ea5b9fdf9c00)
+![Image](https://github.com/user-attachments/assets/0a5c2877-e890-4901-a25a-0cfa24bdb6ee)
 
 
 ### 3️⃣ Ejecutar el servidor 
