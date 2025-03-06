@@ -59,28 +59,25 @@ mvn clean install
 ### 3️⃣ Ejecutar el servidor 
 
 ```bash
-java -cp"./classes:./dependency/* co.edu.eci.arep.HttpServer co.edu.eci.arep.GreetingController
+mvn spring-boot:run
 ```
 
-![Image](https://github.com/user-attachments/assets/b91ad929-476d-4574-b792-751c9c93b2c9)
-
-
-### 4️⃣ Probar con un navegador o `curl`
-```bash
-curl http://localhost:30000/
-```
+![image](https://github.com/user-attachments/assets/03293b31-728d-4a8c-ac17-72b71f5412c0)
 
 
 
-## 🔍 Crear la Imagen Docker 
+## 🔍 Diseño de Clases 
 
-Creamos un archivo denominado Dockerfile con el siguiente contenido:
+Clases Principales
 
 ```bash
-Dockerfile
+Property: Representa la entidad de propiedad con los atributos id, address, price, size, y description.
+PropertyService: Contiene la lógica del negocio para gestionar las operaciones CRUD de las propiedades.
+PropertyController: Proporciona los endpoints RESTful para interactuar con el frontend.
 ```
 
-![Image](https://github.com/user-attachments/assets/328d3d09-3a41-4294-9547-b5ec5723817f)
+![image](https://github.com/user-attachments/assets/a10ca6fa-8513-4c8c-a72d-7a8d74b1d3c9)
+
 
 # Construir la Imagen de Docker
 
