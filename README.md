@@ -69,9 +69,9 @@ mvn spring-boot:run
 Clases Principales
 
 > [!IMPORTANT]
->  - Property: Representa la entidad de propiedad con los atributos id, address, price, size, y description.
->  - PropertyService: Contiene la lógica del negocio para gestionar las operaciones CRUD de las propiedades.
->  - PropertyController: Proporciona los endpoints RESTful para interactuar con el frontend.
+>  - **Property**: Representa la entidad de propiedad con los atributos id, address, price, size, y description.
+>  - **PropertyService**: Contiene la lógica del negocio para gestionar las operaciones CRUD de las propiedades.
+>  - **PropertyController**: Proporciona los endpoints RESTful para interactuar con el frontend.
 
 ![image](https://github.com/user-attachments/assets/a10ca6fa-8513-4c8c-a72d-7a8d74b1d3c9)
 
