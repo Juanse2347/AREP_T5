@@ -26,7 +26,7 @@ Este sistema CRUD permite gestionar anuncios de propiedades inmobiliarias. Los u
 Despliegue de los servicios de backend y base de datos en servidores separados dentro de de AWS
   
 ```bash
-[Despliegue en AWS](https://awsacademy.instructure.com/)
+(https://awsacademy.instructure.com/)
 ```
 
 Se ejecuta localmente en contenedores Docker y también puede ser desplegada en una máquina virtual en AWS.
