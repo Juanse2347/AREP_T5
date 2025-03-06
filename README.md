@@ -87,18 +87,11 @@ El sistema consta de tres componentes principales:
 - **Base de Datos (MySQL en AWS RDS)**: Almacena los datos de las propiedades y asegura su persistencia.
 
 
-```bash
-docker build --tag dockersparkprimer .
-```
+## 🚀 Despliegue AWS
 
+# Creamos las dos instancias en AWS EC2.
 
-
-## 🚀 AWS
-
-# Creamos una instancia en AWS EC2.
-
-
-![Image](https://github.com/user-attachments/assets/a102160f-35c0-45f0-ad8f-e9fc7839722f)
+![image](https://github.com/user-attachments/assets/3f41dff7-e699-4053-9087-8e3b3a2a4d3d)
 
 
 Vamos a instalar Docker en nuestra instancia
