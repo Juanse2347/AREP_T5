@@ -1,6 +1,11 @@
-# Taller de de modularización con virtualización e Introducción a Docker
+# Taller de trabajo individual en patrones arquitecturales
 
-El taller consiste en crear una aplicación web pequeña usando SPRING. Una vez tengamos esta aplicación procederemos a construir un container para docker para la aplicación y los desplegaremos y configuraremos en nuestra máquina local. Luego, crearemos un repositorio en DockerHub y subiremos la imagen al repositorio. Finalmente, crearemos una máquina virtual de en AWS, instalaremos Docker , y desplegaremos el contenedor que acabamos de crear.
+Students are tasked with developing a simple CRUD (Create, Read, Update, Delete) system for managing real estate properties. The goal is to build a basic web application that allows users to perform the following operations on property listings:
+
+- Create new property listings.
+- Read or view a list of all properties and individual property details.
+- Update existing property details.
+- Delete property listings
 
 
 ## 📌 Características
