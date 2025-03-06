@@ -11,13 +11,16 @@ Students are tasked with developing a simple CRUD (Create, Read, Update, Delete)
 ## 📌 Características
 
 ```bash
-Aplicación Web en Java con Spring Boot
+Este sistema CRUD permite gestionar anuncios de propiedades inmobiliarias. Los usuarios pueden crear, leer, actualizar y eliminar propiedades a través de una interfaz web sencilla y un backend implementado con Spring Boot.
 ```
 
-La aplicación utiliza el marco de trabajo Spring Boot para construir una sencilla API REST que responde con un saludo personalizado.
+Funcionalidades Principales
 
 ```bash
-Contenerización con Docker
+- **Crear**: Permite a los usuarios agregar nuevos anuncios de propiedades con detalles como dirección, precio, tamaño y descripción.
+- **Leer**: Muestra una lista de todas las propiedades disponibles y permite ver los detalles individuales de cada propiedad.
+- **Actualizar**: Permite editar la información de una propiedad existente.
+- **Eliminar**: Permite eliminar una propiedad de la base de datos.
 ```
 
 Se crea una imagen de Docker para encapsular la aplicación Java, lo que permite ejecutar la aplicación en cualquier máquina que soporte Docker.
