@@ -89,46 +89,26 @@ El sistema consta de tres componentes principales:
 
 ## 🚀 Despliegue AWS
 
-# Creamos las dos instancias en AWS EC2.
+Creamos las dos instancias en AWS EC2.
 
 ![image](https://github.com/user-attachments/assets/3f41dff7-e699-4053-9087-8e3b3a2a4d3d)
 
 
-Vamos a instalar Docker en nuestra instancia
-
-```bash
-sudo yum update -y
-sudo yum install docker
-```
-
-![Image](https://github.com/user-attachments/assets/f924b2cd-1f0f-411c-9f01-cbc67184b835)
+Ahora configura el grupo de seguridad de la instancia EC2 para permitir el tráfico entrante en el puerto 8080 (o el puerto que hayas configurado en tu aplicación Spring Boot).
 
 
-Ahora iniciamos el servidor Socket
-
-```bash
-sudo service docker start
-```
-
-Configuramos el usuario en el grupo de docker para no tener que ingresar “sudo” cada vez que invoca un comando
-
-```bash
-sudo usermod -a -G docker ec2-user
-```
-
-![Image](https://github.com/user-attachments/assets/27a860aa-c2f0-4120-b11e-f77bd96f2c99)
+![image](https://github.com/user-attachments/assets/752d80f0-d46e-4e39-944c-958d4ab4c810)
 
 
-A partir de la imagen creada en Dockerhub cree una instancia de un contenedor docker independiente de la consola (opción “-d”) y con el puerto 6000 enlazado a un puerto físico de su máquina (opción -p):
-
-```bash
-docker run -d -p 42000:6000 --name firstdockerimageaws usuariodedocker/nombredelrepo
-```
-
-![Image](https://github.com/user-attachments/assets/5f8fdc17-d3d2-46a7-abd1-3c240b89cd7c)
+Asegúrate de que la base de datos MySQL esté accesible desde la instancia EC2.
 
 
-![Image](https://github.com/user-attachments/assets/d811801a-545b-4f8b-9074-6fe878628129)
+## 🚀 Configuración de la Base de Datos
+
+Creamos una base de datos en MySQL
+
+CREATE DATABASE properties_db;
+
 
 
 Ahora abrimos  los puertos de entrada del security group de la máxima virtual para acceder al servicio
