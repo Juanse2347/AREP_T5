@@ -16,12 +16,10 @@ Students are tasked with developing a simple CRUD (Create, Read, Update, Delete)
 Este sistema CRUD permite gestionar anuncios de propiedades inmobiliarias. Los usuarios pueden crear, leer, actualizar y eliminar propiedades a través de una interfaz web sencilla y un backend implementado con Spring Boot.
 
 
-```bash
 - Crear: Permite a los usuarios agregar nuevos anuncios de propiedades con detalles como dirección, precio, tamaño y descripción.
 - Leer: Muestra una lista de todas las propiedades disponibles y permite ver los detalles individuales de cada propiedad.
 - Actualizar: Permite editar la información de una propiedad existente.
 - Eliminar: Permite eliminar una propiedad de la base de datos.
-```
 
 Despliegue de los servicios de backend y base de datos en servidores separados dentro de de AWS
   
@@ -70,11 +68,11 @@ mvn spring-boot:run
 
 Clases Principales
 
-```bash
-Property: Representa la entidad de propiedad con los atributos id, address, price, size, y description.
+> [!NOTE]
+> Property: Representa la entidad de propiedad con los atributos id, address, price, size, y description.
+> 
 PropertyService: Contiene la lógica del negocio para gestionar las operaciones CRUD de las propiedades.
 PropertyController: Proporciona los endpoints RESTful para interactuar con el frontend.
-```
 
 ![image](https://github.com/user-attachments/assets/a10ca6fa-8513-4c8c-a72d-7a8d74b1d3c9)
 
