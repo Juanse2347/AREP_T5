@@ -145,7 +145,20 @@ GRANT ALL PRIVILEGES ON propertydb.* TO 'arep'@'%';
 FLUSH PRIVILEGES;
 ```
 
-En AWS se deberia ver de la siguiente manera
+Creamos los atributos y datos para nuestra tabla:
+
+
+```sql
+CREATE TABLE properties (
+  id BIGINIT AUTO_INCREMENT PRIMARY KEY,
+  address VARCHAR(255) NOT NULL,
+  price DOUBLE NOT NULL,
+  size INT NOT NULL,
+  description VARCHAR(255) NOT NULL
+);
+```
+
+Que agregamos a nuestra instancia en AWS, de la siguiente manera:
 
 ![image](https://github.com/user-attachments/assets/f3384e11-d0c7-46b3-9d54-af24b4b134bc)
 
