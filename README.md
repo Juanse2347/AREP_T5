@@ -136,10 +136,10 @@ Creamos una base de datos en MySQL
 
 ```sql
 CREATE DATABASE propertydb;
-CREATE USER 'arep'@'%' IDENTIFIED BY 'Arep2025@#';
+CREATE USER 'arep'@'%' IDENTIFIED BY 'Arep2025@';
 GRANT ALL PRIVILEGES ON propertydb.* TO 'arep'@'%';
 FLUSH PRIVILEGES;
-
+```
 
 
 Ahora abrimos  los puertos de entrada del security group de la máxima virtual para acceder al servicio
