@@ -103,11 +103,42 @@ Ahora configura el grupo de seguridad de la instancia EC2 para permitir el tráf
 Asegúrate de que la base de datos MySQL esté accesible desde la instancia EC2.
 
 
+# Desplegamos nuestro codigo en AWS
+
+1. Subimos el proyecto a AWS
+
+```bash
+scp -i key.pem target/app.jar ec2-user@IP_EC2:/home/ec2-user/
+```
+
+2. Conectamos a nuestra instancia EC2
+
+```bash
+ssh -i key.pem ec2-user@IP_EC2
+```
+
+3. Ejecutamos la aplicacion 
+
+```bash
+java -jar /home/ec2-user/app.jar
+```
+
+4. Y para finalizar accedemos a la aplicacion
+
+```bash
+[java -jar /home/ec2-user/app.jar](http://EC2_PUBLIC_IP:8080/properties)
+```
+
+
 ## 🚀 Configuración de la Base de Datos
 
 Creamos una base de datos en MySQL
 
-CREATE DATABASE properties_db;
+```sql
+CREATE DATABASE propertydb;
+CREATE USER 'arep'@'%' IDENTIFIED BY 'Arep2025@#';
+GRANT ALL PRIVILEGES ON propertydb.* TO 'arep'@'%';
+FLUSH PRIVILEGES;
 
 
 
