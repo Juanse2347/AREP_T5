@@ -141,8 +141,12 @@ GRANT ALL PRIVILEGES ON propertydb.* TO 'arep'@'%';
 FLUSH PRIVILEGES;
 ```
 
+En AWS se deberia ver de la siguiente manera
 
-Ahora abrimos  los puertos de entrada del security group de la máxima virtual para acceder al servicio
+![image](https://github.com/user-attachments/assets/f3384e11-d0c7-46b3-9d54-af24b4b134bc)
+
+
+Ahora abrimos los puertos de entrada del security group de la máxima virtual para acceder al servicio
 
 
 Ahora con:
