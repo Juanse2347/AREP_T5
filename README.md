@@ -97,13 +97,13 @@ Creamos las dos instancias en AWS EC2.
 Ahora configura el grupo de seguridad de la instancia EC2 para permitir el tráfico entrante en el puerto 8080 (o el puerto que hayas configurado en tu aplicación Spring Boot).
 
 
-![image](https://github.com/user-attachments/assets/752d80f0-d46e-4e39-944c-958d4ab4c810)
+![image](https://github.com/user-attachments/assets/0855c555-704d-4d8c-85bc-4e6784f21c97)
 
 
 Asegúrate de que la base de datos MySQL esté accesible desde la instancia EC2.
 
 
-# Desplegamos nuestro codigo en AWS
+Desplegamos nuestro codigo en AWS
 
 1. Subimos el proyecto a AWS
 
@@ -152,26 +152,8 @@ En AWS se deberia ver de la siguiente manera
 
 Ahora abrimos los puertos de entrada del security group de la máxima virtual para acceder al servicio
 
+![image](https://github.com/user-attachments/assets/752d80f0-d46e-4e39-944c-958d4ab4c810)
 
-Ahora con:
-
-```bash
-http://ec2-34-227-105-59.compute-1.amazonaws.com:42000/index.html
-```
-
-
-![Image](https://github.com/user-attachments/assets/d644fdb6-743a-4246-ab1c-3ab00e15684b)
-
-
-## 🔍 Pruebas de extremo a extremo ##
-
-Pruebas del navegador 
-
-Probamos que nuestro servicio este funcionando correctamente
-
-```bash
-http://localhost:30000/
-```
 
 
 ## 🔍 Pruebas de Estilo de Codificacion ##
@@ -190,7 +172,7 @@ mvn checkstyle:check
 Vamos a ejecutar el servidor como un proceso en segundo plano o configurar un servicio systemd, de la siguiente manera:
 
 ```bash
-java -cp"./classes:./dependency/* co.edu.eci.arep.HttpServer co.edu.eci.arep.GreetingController
+mvn spring-boot:run
 ```
 
 ## :cd: Construido con ## 
