@@ -126,8 +126,12 @@ java -jar /home/ec2-user/app.jar
 4. Y para finalizar accedemos a la aplicacion
 
 ```bash
-[java -jar /home/ec2-user/app.jar](http://EC2_PUBLIC_IP:8080/properties)
+http://EC2_PUBLIC_IP:8080/index.html
 ```
+
+Que se veria de la siguiente manera
+
+![image](https://github.com/user-attachments/assets/932d8b33-db0c-460c-adad-ec8b921410fe)
 
 
 ## 🚀 Configuración de la Base de Datos
